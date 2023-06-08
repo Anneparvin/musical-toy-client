@@ -12,8 +12,13 @@ const router = createBrowserRouter([
         path: "/home",
         element: <Home></Home>  
         }
-      ]
+      ],
     },
+    {
+        path: "/*",
+        element: <div><img className="w-full p-8" src="https://ibb.co/18V15mh" alt="404"/></div> 
+      },
+
   ]);
 
   export default router;
