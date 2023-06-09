@@ -10,8 +10,10 @@ const ToyCategory = () => {
     return (
         <div>
             {
+                categories.length &&
                 categories.map(category => <Category
-                
+                key={category.toyId}
+                category = {category}
                 ></Category>)
             }
         </div>

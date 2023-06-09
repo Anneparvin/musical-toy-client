@@ -4,6 +4,7 @@ import Gallery from '../Gallery/Gallery';
 import Singing from '../Singing/Singing';
 import Team from '../Team/Team';
 import ToyCard from '../ToyCard/ToyCards';
+import ToyCategory from '../ToyCategory/ToyCategory';
 
 const Home = () => {
     return (
@@ -13,6 +14,7 @@ const Home = () => {
             <Singing></Singing>
             <Team></Team>
             <ToyCard></ToyCard>
+            <ToyCategory></ToyCategory>
         </div>
     );
 };
