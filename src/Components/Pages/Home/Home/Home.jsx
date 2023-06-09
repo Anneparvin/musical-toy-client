@@ -3,6 +3,7 @@ import Banner from '../Banner/Banner';
 import Gallery from '../Gallery/Gallery';
 import Singing from '../Singing/Singing';
 import Team from '../Team/Team';
+import ToyCard from '../ToyCard/ToyCards';
 
 const Home = () => {
     return (
@@ -11,6 +12,7 @@ const Home = () => {
             <Gallery></Gallery>
             <Singing></Singing>
             <Team></Team>
+            <ToyCard></ToyCard>
         </div>
     );
 };

@@ -3,6 +3,8 @@ import Main from "../../Layouts/Main";
 import Home from "../Home/Home/Home";
 import Login from "../Login/Login/Login";
 import SignUp from '../Login/SignUp/SignUp'
+import ToyCards from "../Home/ToyCard/ToyCards";
+import ToyCategory from "../Home/ToyCategory/ToyCategory";
 
 const router = createBrowserRouter([
     {
@@ -20,7 +22,17 @@ const router = createBrowserRouter([
         {
         path: "/signup",
         element: <SignUp></SignUp> 
+        },
+        {
+        path: "/toys",
+        element: <ToyCards></ToyCards>
+        },
+        {
+        path: "/toys/:toyId",
+        element: <ToyCategory></ToyCategory>,
+        loader:async({params}) => fetch(`http://localhost:5000/toys/${params.toyId}`)
         }
+
       ]
     },
     {
