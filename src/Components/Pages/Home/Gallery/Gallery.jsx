@@ -17,16 +17,7 @@ const Gallery = () => {
             <h1 className='text-6xl font-bold mt-8'>Gallery Side</h1>
             <h3 className='font-bold'>With Little People figures, toddlers can explore how exciting is the world around them!</h3>
         <p className='text-xl bg-red-700 p-8 w-full rounded-xl font-bold mt-8'>Get FREE delivery on orders over R800 or Click & Collect nationwide at Toys R Us</p>
-            {/* <div className='grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-4 bg-black p-8 rounded-xl mt-2'>
-                <img className='w-full' src={gallery1} alt='pic'/>
-                <img className='w-full' src={gallery2} alt='pic'/>
-                <img className='w-full' src={gallery3} alt='pic'/>
-                <img className='w-full' src={gallery4} alt='pic'/>
-                <img className='w-full' src={gallery5} alt='pic'/>
-                <img className='w-full' src={gallery6} alt='pic'/>
-                <img className='w-full' src={gallery7} alt='pic'/>
-                <img className='w-full' src={gallery8} alt='pic'/>
-            </div> */}
+           
 
 <section className="py-6 dark:bg-gray-800 dark:text-gray-50">
 	<div className="container grid grid-cols-2 gap-4 p-4 mx-auto md:grid-cols-4 bg-black rounded-xl mt-2">
