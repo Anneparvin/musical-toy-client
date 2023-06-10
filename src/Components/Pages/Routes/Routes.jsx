@@ -28,9 +28,9 @@ const router = createBrowserRouter([
         element: <ToyCards></ToyCards>
         },
         {
-        path: "/toys/:toyId",
+        path: "/toys/:_id",
         element: <ToyCategory></ToyCategory>,
-        loader:async({params}) => fetch(`http://localhost:5000/toys/${params.toyId}`)
+        loader:async({params}) => fetch(`http://localhost:5000/toys/${params._id}`)
         }
 
       ]
