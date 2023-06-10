@@ -70,7 +70,20 @@ const Login = () => {
     })
 	}
 
-
+  // google sign in
+  const handleGoogleSignIn = ()=> {
+    googleSignIn()
+    .then(result => {
+      const user = result.user;
+      console.log(user)
+      setSuccess(true);
+      navigate(from, {replace: true});
+    })
+    .catch(error => {
+      console.error(error.message);
+      setPasswordError(error.message)
+    })
+  }
   
     return (
         <div>
@@ -106,6 +119,7 @@ const Login = () => {
    <ToastContainer></ToastContainer>
    <p className='text-sm text-green-700'>{success}</p>
    <p className='text-sm text-red-700'>{error}</p>
+   <p className='text-sm text-red-700'>{passwordError}</p>
 
    <div className="justify-center space-x-4">
     <hr  className='w-full bg-black h-2'/>
