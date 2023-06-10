@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import login from '../../../../assets/images/toyPlay/ai-portrait.jpg'
 import CourseTitle from '../../../CourseTitle/CourseTitle';
 import { ToastContainer, toast } from 'react-toastify';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProviders';
 
 
@@ -130,6 +130,8 @@ const Login = () => {
                             </svg>
                         </button>
                     </div>
+                    <p className='text-center'>New to Musical Toy? 
+        <Link className='text-orange-600 font-bold' to="/signup">SignUp</Link> </p>
     </div>
   </div>
 </div>
