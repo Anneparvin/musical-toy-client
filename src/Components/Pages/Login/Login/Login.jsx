@@ -1,19 +1,23 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import login from '../../../../assets/images/toyPlay/ai-portrait.jpg'
 import CourseTitle from '../../../CourseTitle/CourseTitle';
 import { ToastContainer, toast } from 'react-toastify';
+import {AuthContext} from '../../Providers/AuthProviders';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 
 
 const Login = () => {
+  const {signIn, googleSignIn} = useContext(AuthContext);
   const [passwordError, setPasswordError] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
 
   CourseTitle('Login');
 
-
-
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || '/';
 
 
 	const handleLogin = (event)=> {
@@ -52,7 +56,20 @@ const Login = () => {
         return;
     }
 
+    // user sign in
+    signIn(email, password)
+    .then(result => {
+      const user = result.user;
+      console.log(user)
+      setSuccess(true);
+      navigate(from, {replace: true});
+    })
+    .catch(error => {
+      console.error(error.message);
+      setPasswordError(error.message)
+    })
 	}
+
 
   
     return (
