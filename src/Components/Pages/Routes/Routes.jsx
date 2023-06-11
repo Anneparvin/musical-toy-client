@@ -4,8 +4,11 @@ import Home from "../Home/Home/Home";
 import Login from "../Login/Login/Login";
 import SignUp from '../Login/SignUp/SignUp'
 import ToyCards from "../Home/ToyCard/ToyCards";
-import ToyCategory from "../Home/ToyCategory/ToyCategory";
 import Blog from "../Blog/Blog";
+import SingleToy from "../Home/ToyCategory/singleToy";
+import PrivateRoute from "../../PrivateRoute/PrivateRoute";
+import AllToys from "../AllToys/AllToys";
+import ToysService from "../ToysService/ToysService";
 
 const router = createBrowserRouter([
     {
@@ -34,9 +37,18 @@ const router = createBrowserRouter([
         },
         {
         path: "/toys/:_id",
-        element: <ToyCategory></ToyCategory>,
+        element:<SingleToy></SingleToy>,
         loader:async({params}) => fetch(`http://localhost:5000/toys/${params._id}`)
-        }
+        },
+        {
+          path: "/alltoys",
+          element: <AllToys></AllToys>
+          },
+        {
+          path: "/toys:_id",
+          element: <ToysService></ToysService>,
+          loader:({params}) => fetch(`http://localhost:5000/toys/${params._id}`)
+          },
 
       ]
     },

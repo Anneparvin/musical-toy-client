@@ -1,12 +1,13 @@
 
 
 import React from 'react';
+import CourseTitle from '../../CourseTitle/CourseTitle';
 
 
 
 
 const Blog = () => {
-    
+  CourseTitle('Blog') 
 
 
     return (

@@ -1,15 +1,20 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useLocation, useNavigate } from 'react-router-dom';
+import ToysService from '../../ToysService/ToysService';
 
 
 
-const ToyCategory = () => {
+const SingleToy = () => {
     const details = useLoaderData();
     console.log(details)
 
+	const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || '/';
+  
     return (
         <div>
-        <div className="rounded-md shadow-md sm:w-96 dark:bg-gray-900 dark:text-gray-100">
+        <div className="rounded-md shadow-md sm:w-96 lg:w-3/5 mx-auto dark:bg-gray-900 dark:text-gray-100">
         
 	<div className="flex items-center justify-between p-3">
 		<div className="flex items-center space-x-2">
@@ -27,7 +32,7 @@ const ToyCategory = () => {
 			</svg>
 		</button>
 	</div>
-	<img src={details.Picture} alt="" className="object-cover object-center w-full h-72 dark:bg-gray-500" />
+	<img src={details.Picture} alt="" className="object-cover object-center w-full h-full dark:bg-gray-500" />
 	<div className="p-3">
 		<div className="flex items-center justify-between">
 			<div className="flex items-center space-x-3">
@@ -60,22 +65,23 @@ const ToyCategory = () => {
 					<img alt="" className="w-5 h-5 border rounded-full dark:bg-gray-500 dark:border-gray-800" src="https://source.unsplash.com/40x40/?portrait?2" />
 					<img alt="" className="w-5 h-5 border rounded-full dark:bg-gray-500 dark:border-gray-800" src="https://source.unsplash.com/40x40/?portrait?3" />
 				</div>
-				<span className="text-sm">Liked by
-					<span className="font-semibold">Mamba UI</span>and
-					<span className="font-semibold">86 others</span>
+				<span className="text-sm">Quantity: 
+					<span className="font-semibold">{details.quantity}</span>and Rating:
+					<span className="font-semibold">{details.rating}</span>
 				</span>
 			</div>
 		</div>
 		<div className="space-y-3">
 			<p className="text-sm">
-				<span className="text-base font-semibold">leroy_jenkins72</span>Nemo ea quasi debitis impedit!
+				<span className="text-base font-semibold">{details.description}</span>
 			</p>
 			<input type="text" placeholder="Add a comment..." className="w-full py-0.5 dark:bg-transparent border-none rounded text-sm pl-0 dark:text-gray-100" />
 		</div>
 	</div>
 </div>
+<ToysService></ToysService>
         </div>
     );
 };
 
-export default ToyCategory;
+export default SingleToy;

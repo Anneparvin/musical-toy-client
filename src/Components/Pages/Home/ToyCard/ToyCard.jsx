@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../Providers/AuthProviders';
 
 const ToyCard = ({toyCard}) => {
+    const {user} = useContext(AuthContext);
     const {Name, subject, Picture, rating, _id} = toyCard;
 
     return (
@@ -15,7 +17,11 @@ const ToyCard = ({toyCard}) => {
 			<p className="dark:text-gray-100">rating: {rating}</p>
 		</div>
         <Link to={`/toys/${_id}`}>
+    {/* {user.uid? 
+    alert(“You have to log in first to view details”):
+    <button type="button" className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md bg-violet-400 text-gray-900">View Details</button>} */}
         <button type="button" className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md bg-violet-400 text-gray-900">View Details</button>
+        
         </Link>
 		
 	</div>
