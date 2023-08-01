@@ -1,18 +1,41 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../../../../assets/images/logo/bird-3971751_640.png';
 import CourseTitle from '../../../CourseTitle/CourseTitle';
+import { AuthContext } from '../../Providers/AuthProviders';
 
 const Navbar = () => {
+  const  {user, logOut}  = useContext(AuthContext);
+  console.log(user)
     CourseTitle('Login');
+
+    const handleLogOut = () => {
+      logOut()
+      .then(() => {})
+      .catch(error => console.log(error));
+    }
+    
 
     const menuItems = <>
         <li><Link to='/'>Home</Link></li>
         <li><Link to='/blog'>Blog</Link></li>
-        <li><Link to='/login'>Login</Link></li>
         <li><Link to='/signup'>Sign Up</Link></li>
-        <li><Link to='/alltoys'>AllToys</Link></li>
-    
+        
+        {
+      user ? <>
+      <li><Link to='/alltoys'>AllToys</Link></li>
+
+
+      <div className="w-10 rounded-full mx-2 hover:tooltip hover:tooltip-open hover:tooltip-bottom" 
+      data-tip={user?.displayName || 'Forida Parvin '}>
+      <img className="h-10 rounded-full" src={user?.photoURL ? user.photoURL : "https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg"} alt='picture' /></div>
+
+      <button onClick={handleLogOut} className="btn btn-ghost">LogOut</button>
+      </> : <>
+      
+      <li><Link to='/login'>Login</Link></li>
+    </>
+    }
     
                     </>
     return (

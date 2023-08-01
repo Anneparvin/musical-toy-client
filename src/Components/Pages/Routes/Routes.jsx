@@ -54,7 +54,7 @@ const router = createBrowserRouter([
     },
     {
         path: "/*",
-        element: <div><img className="w-full p-8" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRbReMzQtlvSktN9RYUtpmqOmyb4NUc58ji73Or3coCg&s" alt="404"/></div> 
+        element: <div><img className="w-full h-96" src="https://i.ibb.co/yR7WMnq/error-404.jpg" alt="404"/></div> 
       },
 
   ]);

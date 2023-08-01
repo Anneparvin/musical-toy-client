@@ -5,7 +5,7 @@ import { useLoaderData } from 'react-router-dom';
 const ToysService = () => {
     const {user} = useContext(AuthContext);
     const allToys = useLoaderData();
-    // const {toyId,rating,quantity,subject,Name} =allToys;
+    const {toyId,rating,quantity,subject,Name} =allToys;
 
     const handleToyService =(event) => {
         event.preDefault();
@@ -13,33 +13,33 @@ const ToysService = () => {
         const form = event.target;
        const name = form.name.value;
        const email = user?.email;
-    //    const toyName =form.toyName.value;
-    //    const addToy = {
-    //             customerName: name, 
-    //             email, 
-    //             quantity,
-    //             toyName, 
-    //             subject,
-    //             rating,
-    //             toyId,
-    //             price
-    //         }
-    //         console.log(addToy);
+       const toyName =form.toyName.value;
+       const addToy = {
+                customerName: name, 
+                email, 
+                quantity,
+                toyName, 
+                subject,
+                rating,
+                toyId,
+                price
+            }
+            console.log(addToy);
 
-    // fetch('http://localhost:5000/allToys', {
-    //     method: 'POST', 
-    //     headers: {
-    //         'content-type': 'application/json'
-    //     }, 
-    //     body: JSON.stringify(addToy)
-    // })
-    // .then(res => res.json())
-    // .then(data => {
-    //     console.log(data);
-    //     if(data.insertedId){
-    //         alert('addToy successfully')
-    //     }
-    // })
+    fetch('http://localhost:5000/allToys', {
+        method: 'POST', 
+        headers: {
+            'content-type': 'application/json'
+        }, 
+        body: JSON.stringify(addToy)
+    })
+    .then(res => res.json())
+    .then(data => {
+        console.log(data);
+        if(data.insertedId){
+            alert('addToy successfully')
+        }
+    })
 
     }
 
@@ -51,7 +51,7 @@ const ToysService = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="form-control">
                   <label className="label">
-                      <span className="label-text">Name</span>
+                      <span className="label-text">User Name</span>
                   </label>
                   <input type="text" defaultValue={user?.displayName} name="name" className="input input-bordered" />
               </div>
@@ -87,7 +87,7 @@ const ToysService = () => {
               </div>
           </div>
           <div className="form-control mt-6">
-              <input className="btn btn-primary btn-block" type="submit" value="Add a Toy" />
+              <input className="btn btn-primary btn-block mb-8" type="submit" value="Add a Toy" />
           </div>
       </form>  
         </div>
