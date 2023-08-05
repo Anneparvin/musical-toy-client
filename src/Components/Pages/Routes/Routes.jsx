@@ -35,11 +35,11 @@ const router = createBrowserRouter([
         },
         {
         path: "/toys",
-        element: <PrivateRoute><ToyCards></ToyCards></PrivateRoute>
+        element: <ToyCards></ToyCards>
         },
         {
         path: "/toys/:_id",
-        element:<SingleToy></SingleToy>,
+        element:<PrivateRoute><SingleToy></SingleToy></PrivateRoute>,
         loader:async({params}) => fetch(`https://musical-toy-server.vercel.app/toys/${params._id}`)
         },
         {
