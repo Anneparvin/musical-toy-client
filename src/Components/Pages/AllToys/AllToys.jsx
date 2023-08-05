@@ -2,12 +2,16 @@ import React, { useEffect, useState } from 'react';
 
 const AllToys = () => {
     const [allToys, setAllToys] = useState([]);
+    
 
     useEffect(()=> {
-      fetch('http://localhost:5000/alltoys')
+      fetch(`https://musical-toy-server.vercel.app/alltoys`)
       .then(res =>res.json())
       .then(data =>setAllToys(data))
     },[])
+
+   
+
 
 
     return (
