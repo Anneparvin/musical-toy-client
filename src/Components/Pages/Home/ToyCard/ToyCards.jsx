@@ -2,15 +2,20 @@ import React, { useEffect, useState } from 'react';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import ToyCard from './ToyCard';
+import { useContext } from 'react';
+import { AuthContext } from '../../Providers/AuthProviders';
 
 const ToyCards = () => {
+    const {user} = useContext(AuthContext);
   const [toyCards, setToyCards] = useState([]);
 
  useEffect (()=>{
     fetch('http://localhost:5000/toys')
     .then(res => res.json())
     .then(data => {
+        console.log(data)
     const toysData = data.filter(toy => toy.toyId == 11)
+    
     setToyCards(toysData)
     console.log(toysData)
     })

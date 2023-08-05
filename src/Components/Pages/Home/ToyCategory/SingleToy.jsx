@@ -1,10 +1,12 @@
 import React from 'react';
 import { useLoaderData, useLocation, useNavigate } from 'react-router-dom';
-import ToysService from '../../ToysService/ToysService';
+import { useContext } from 'react';
+import { AuthContext } from '../../Providers/AuthProviders';
 
 
 
 const SingleToy = () => {
+	const {user} = useContext(AuthContext)
     const details = useLoaderData();
     console.log(details)
 
@@ -18,10 +20,19 @@ const SingleToy = () => {
         
 	<div className="flex items-center justify-between p-3">
 		<div className="flex items-center space-x-2">
-			<img src={details.Picture} alt="" className="object-cover object-center w-8 h-8 rounded-full shadow-sm dark:bg-gray-500 dark:border-gray-700" />
+			{
+				user?  <div className="w-10 rounded-full mx-2 hover:tooltip hover:tooltip-open hover:tooltip-bottom" 
+				data-tip={user?.displayName}>
+				<img className="h-10 rounded-full" src={user?.photoURL ? user.photoURL : "https://st3.depositphotos.com/6672868/13701/v/450/depositphotos_137014128-stock-illustration-user-profile-icon.jpg"} alt='picture' /></div>
+		   : <div></div>
+
+			}
 			<div className="-space-y-1">
-				<h2 className="text-sm font-semibold leading-none">{details.name}</h2>
-				<span className="inline-block text-xs leading-none dark:text-gray-400">{details.quantity}</span>
+			{
+				user? 
+				user?.email :<></>
+
+			}
 			</div>
 		</div>
 		<button title="Open options" type="button">
@@ -58,6 +69,11 @@ const SingleToy = () => {
 				</svg>
 			</button>
 		</div>
+				<div className='text-2xl font-bold text-left'>
+
+				Toy Name : 
+					<span className="font-semibold"> {details.Name}</span>
+				</div>
 		<div className="flex flex-wrap items-center pt-3 pb-1">
 			<div className="flex items-center space-x-2">
 				<div className="flex -space-x-1">
@@ -65,21 +81,23 @@ const SingleToy = () => {
 					<img alt="" className="w-5 h-5 border rounded-full dark:bg-gray-500 dark:border-gray-800" src="https://source.unsplash.com/40x40/?portrait?2" />
 					<img alt="" className="w-5 h-5 border rounded-full dark:bg-gray-500 dark:border-gray-800" src="https://source.unsplash.com/40x40/?portrait?3" />
 				</div>
-				<span className="text-sm">Quantity: 
-					<span className="font-semibold">{details.quantity}</span>and Rating:
-					<span className="font-semibold">{details.rating}</span>
+				<span className="text-sm"> 
+					 Quantity :  
+					<span className="font-semibold">{details.quantity}</span> and Rating :
+					<span className="font-semibold">{details.rating}</span> and Price : 
+					<span className="font-semibold">{details.price}</span>
 				</span>
 			</div>
 		</div>
-		<div className="space-y-3">
+		<div className="text-left">
 			<p className="text-sm">
-				<span className="text-base font-semibold">{details.description}</span>
+				<span className="text-base font-semibold">Description : {details.description}</span>
 			</p>
 			<input type="text" placeholder="Add a comment..." className="w-full py-0.5 dark:bg-transparent border-none rounded text-sm pl-0 dark:text-gray-100" />
 		</div>
 	</div>
 </div>
-<ToysService></ToysService>
+
         </div>
     );
 };

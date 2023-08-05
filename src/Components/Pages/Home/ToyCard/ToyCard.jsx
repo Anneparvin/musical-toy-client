@@ -1,11 +1,21 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+
+import { Link,useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../Providers/AuthProviders';
+import { useContext} from 'react';
+
 
 const ToyCard = ({toyCard}) => {
     const {user} = useContext(AuthContext);
-    const {Name, subject, Picture, rating, _id} = toyCard;
+    
 
+
+    const navigate = useNavigate();
+    const location = useLocation();
+     const from = location.state?.from?.pathname || '/';
+
+
+    const {Name, subject, Picture, rating, _id} = toyCard;
+     
     return (
         <div>
             <div className="max-w-xs rounded-md shadow-md dark:bg-gray-900 dark:text-gray-100">
@@ -17,9 +27,7 @@ const ToyCard = ({toyCard}) => {
 			<p className="dark:text-gray-100">rating: {rating}</p>
 		</div>
         <Link to={`/toys/${_id}`}>
-    {/* {user.uid? 
-    alert(“You have to log in first to view details”):
-    <button type="button" className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md bg-violet-400 text-gray-900">View Details</button>} */}
+       
         <button type="button" className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md bg-violet-400 text-gray-900">View Details</button>
         
         </Link>
