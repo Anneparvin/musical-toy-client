@@ -10,7 +10,7 @@ const ToyCards = () => {
   const [toyCards, setToyCards] = useState([]);
 
  useEffect (()=>{
-    fetch('https://musical-toy-server.vercel.app/toys')
+    fetch('http://localhost:5000/toys')
     .then(res => res.json())
     .then(data => {
         console.log(data)
@@ -22,7 +22,7 @@ const ToyCards = () => {
  },[])
 
     const handlePuzzel = ()=> {
-        fetch('https://musical-toy-server.vercel.app/toys')
+        fetch('http://localhost:5000/toys')
             .then(res => res.json())
             .then(data => {
             const toysData = data.filter(toy => toy.toyId == 11)
@@ -32,7 +32,7 @@ const ToyCards = () => {
     }
 
     const handleMusic = ()=> {
-        fetch('https://musical-toy-server.vercel.app/toys')
+        fetch('http://localhost:5000/toys')
             .then(res => res.json())
             .then(data => {
             const toysData = data.filter(toy => toy.toyId == 12)
@@ -41,7 +41,7 @@ const ToyCards = () => {
             })
     }
     const handleBoard = ()=> {
-        fetch('https://musical-toy-server.vercel.app/toys')
+        fetch('http://localhost:5000/toys')
             .then(res => res.json())
             .then(data => {
             const toysData = data.filter(toy => toy.toyId == 13)

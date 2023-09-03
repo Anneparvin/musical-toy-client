@@ -11,7 +11,7 @@ const Blog = () => {
 
 
     return (
-      <div className='max-w-[1440px]  rounded-lg p-4 mb-4'>
+      <div className='rounded-lg p-4 mb-4'>
     
           <section>
           <h1 class="text-4xl text-center font-bold underline mt-4 p-4">Blog Question</h1>

@@ -47,7 +47,7 @@ const Singing = () => {
   
 </div>
 {/* mobile mockup */}
-          <div className='grid grid-cols-1 md:grid-cols-3 gap-1 md:gap-2 bg-red-800 rounded-xl mt-4 p-4 md:p-4'>
+          <div className='grid grid-cols-1 md:grid-cols-3 gap-1 md:gap-2 bg-red-800 rounded-xl mt-4 p-4 md:p-8 w-full'>
          <div className="mockup-phone">
   <div className="camera"></div> 
   <div className="display">

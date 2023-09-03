@@ -47,19 +47,19 @@ const Navbar = () => {
       <label tabIndex={0} className="btn btn-ghost lg:hidden">
         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
       </label>
-      <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-orange-200 rounded-box w-52">
+      <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-orange-200 rounded-box w-60">
        {menuItems}
       </ul>
     </div>
     <div className='flex lg:flex-col'>
     <Link to='/' className="btn btn-ghost normal-case text-xl">
-        <img className='w-24 rounded-xl' src={logo} alt='pic'/>
+        <img className='lg:w-24 w-20 rounded-xl' src={logo} alt='pic'/>
     </Link>
-    <p className='text-2xl font-bold flex'><span className='text-lime-900 text-5xl font-bold'>Musical</span><span className='text-amber-900 font-bold text-6xl'>Toy</span> </p>
+    <p className='text-2xl font-bold flex'><span className='text-lime-900 lg:text-5xl text-md font-bold'>Musical</span><span className='text-amber-900 font-bold lg:text-6xl text-md'>Toy</span> </p>
     </div>
   </div>
   <div className="navbar-center hidden lg:flex">
-    <ul className="menu menu-horizontal px-1 text-xl ">
+    <ul className="menu menu-horizontal px-1 text-xl">
     {menuItems}
     </ul>
   </div>
