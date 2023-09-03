@@ -40,7 +40,7 @@ const router = createBrowserRouter([
         {
         path: "/toys/:_id",
         element:<PrivateRoute><SingleToy></SingleToy></PrivateRoute>,
-        loader:async({params}) => fetch(`http://localhost:5000/toys/${params._id}`)
+        loader:async({params}) => fetch(`https://musical-toy-server.vercel.app/toys/${params._id}`)
         },
         {
           path: "/alltoys",

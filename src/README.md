@@ -25,7 +25,7 @@ This is a Musical toy websie.there are many toys like puzzels game, board games,
 https://toymaster-1eeeb.web.app
 
 ## Vercel Link
- http://localhost:5000
+ https://musical-toy-server.vercel.app
  
 ## Github Link
 Client Side: https://github.com/Anneparvin/Musical-toy-clientSide

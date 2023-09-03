@@ -10,7 +10,7 @@ const MyToys = () => {
 
   
   useEffect(()=>{
-      fetch(`http://localhost:5000/bookingToys`,{
+      fetch(`https://musical-toy-server.vercel.app/bookingToys`,{
         method:'GET',
         headers:{
          
@@ -31,7 +31,7 @@ const MyToys = () => {
   const handleDelete = id => {
       const proceed = confirm('are you sure, you want to delete');
       if(proceed){
-        fetch(`http://localhost:5000/bookingToys/${id}`,{
+        fetch(`https://musical-toy-server.vercel.app/bookingToys/${id}`,{
          method:'DELETE' 
         })
         .then(res=>res.json())
@@ -47,7 +47,7 @@ const MyToys = () => {
     }
 
     const handleBookingUpdate = id => {
-     fetch(`http://localhost:5000/bookingToys/${id}`,{
+     fetch(`https://musical-toy-server.vercel.app/bookingToys/${id}`,{
       method:'PATCH',
       headers:{
           'content-type' : 'application/json'
